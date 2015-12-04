@@ -43,6 +43,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ZTP-m1-Ngd" id="JOY-6I-1D7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
