@@ -18,7 +18,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var locationManager: CLLocationManager?
     let distanceSpan: Double = 500
     var lastLocation: CLLocation?
-    var venues: Results<Venue>?
+    var venues: [Venue]?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -77,9 +77,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 CoffeeAPI.sharedInstance.getCoffeeShopsWithLocation(location)
             }
             
-            let realm = try! Realm()
+            let (start, stop) = calculateCoordinatesWithRegion(location)
+            let predicate = NSPredicate(format: "latitude < %f AND latitude > %f AND longitude > %f AND longitude < %f", start.latitude, stop.latitude, start.longitude, stop.longitude)
             
-            venues = realm.objects(Venue)
+            let realm = try! Realm()
+            venues = realm.objects(Venue).filter(predicate).sort {
+                location.distanceFromLocation($0.coordinate) < location.distanceFromLocation($1.coordinate)
+            }
             
             for venue in venues! {
                 let annotation = CoffeeAnnotation(title: venue.name, subtitle: venue.address, coordinate: CLLocationCoordinate2D(latitude: Double(venue.latitude), longitude: Double(venue.longitude)))
@@ -89,6 +93,20 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
         tableView?.reloadData()
         
+    }
+    
+    func calculateCoordinatesWithRegion(location: CLLocation) -> (CLLocationCoordinate2D, CLLocationCoordinate2D){
+        let region = MKCoordinateRegionMakeWithDistance(location.coordinate, distanceSpan, distanceSpan)
+        
+        var start:CLLocationCoordinate2D = CLLocationCoordinate2D()
+        var stop:CLLocationCoordinate2D = CLLocationCoordinate2D()
+        
+        start.latitude  = region.center.latitude  + (region.span.latitudeDelta  / 2.0)
+        start.longitude = region.center.longitude - (region.span.longitudeDelta / 2.0)
+        stop.latitude   = region.center.latitude  - (region.span.latitudeDelta  / 2.0)
+        stop.longitude  = region.center.longitude + (region.span.longitudeDelta / 2.0)
+        
+        return (start, stop)
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
