@@ -16,6 +16,9 @@
 		A11A8F791C11EAE4000DAA25 /* CoffeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A8F781C11EAE4000DAA25 /* CoffeeTests.swift */; };
 		A11A8F841C11EAE4000DAA25 /* CoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A8F831C11EAE4000DAA25 /* CoffeeUITests.swift */; };
 		A11A8F921C11FD61000DAA25 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11A8F911C11FD61000DAA25 /* MapKit.framework */; };
+		A1FB16371C122469003937B7 /* CoffeeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB16361C122469003937B7 /* CoffeeAPI.swift */; };
+		A1FB16391C122AE8003937B7 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB16381C122AE8003937B7 /* Venue.swift */; };
+		A1FB163B1C122DC9003937B7 /* CoffeeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB163A1C122DC9003937B7 /* CoffeeAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		A11A8F831C11EAE4000DAA25 /* CoffeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeUITests.swift; sourceTree = "<group>"; };
 		A11A8F851C11EAE4000DAA25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11A8F911C11FD61000DAA25 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A1FB16361C122469003937B7 /* CoffeeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeAPI.swift; sourceTree = "<group>"; };
+		A1FB16381C122AE8003937B7 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		A1FB163A1C122DC9003937B7 /* CoffeeAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeAnnotation.swift; sourceTree = "<group>"; };
 		BFF4C2DE651EC1B3F378F9DB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF3E316676371B12588FF89C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +128,9 @@
 				A11A8F6A1C11EAE3000DAA25 /* Assets.xcassets */,
 				A11A8F6C1C11EAE3000DAA25 /* LaunchScreen.storyboard */,
 				A11A8F6F1C11EAE3000DAA25 /* Info.plist */,
+				A1FB16361C122469003937B7 /* CoffeeAPI.swift */,
+				A1FB16381C122AE8003937B7 /* Venue.swift */,
+				A1FB163A1C122DC9003937B7 /* CoffeeAnnotation.swift */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";
@@ -336,6 +345,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11A8F661C11EAE3000DAA25 /* ViewController.swift in Sources */,
+				A1FB163B1C122DC9003937B7 /* CoffeeAnnotation.swift in Sources */,
+				A1FB16391C122AE8003937B7 /* Venue.swift in Sources */,
+				A1FB16371C122469003937B7 /* CoffeeAPI.swift in Sources */,
 				A11A8F641C11EAE3000DAA25 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
